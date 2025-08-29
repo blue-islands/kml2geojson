@@ -4,7 +4,7 @@
 
     <groupId>jp.livlog</groupId>
     <artifactId>kml2geojson</artifactId>
-    <version>0.1.2-SNAPSHOT</version>
+    <version>0.1.2</version>
 
     <name>kml2geojson</name>
     <url>https://github.com/blue-islands/kml2geojson</url>
@@ -27,7 +27,7 @@
         <connection>scm:git:https://github.com/blue-islands/kml2geojson.git</connection>
         <developerConnection>scm:git:https://github.com/blue-islands/kml2geojson.git</developerConnection>
         <url>https://github.com/blue-islands/kml2geojson</url>
-        <tag>HEAD</tag>
+        <tag>0.1.2</tag>
     </scm>
 
     <dependencyManagement>
