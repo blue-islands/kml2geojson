@@ -11,6 +11,8 @@ KML ファイルを GeoJSON に変換するための Java ライブラリです�
 
 ## インストール（JitPack）
 
+[![](https://jitpack.io/v/blue-islands/kml2geojson.svg)](https://jitpack.io/#blue-islands/kml2geojson)
+
 本ライブラリは [JitPack](https://jitpack.io) を通じて公開されています。  
 Maven/Gradle プロジェクトに以下を追加してください。
 
