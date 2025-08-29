@@ -1,29 +1,35 @@
 package jp.livlog.kml2geojson;
 
-import java.io.File;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
-/** 引数不要。相対パス固定。data フォルダ等は事前に用意してください。 */
 public class Kml2GeojsonCli {
 
-    private static final String INPUT_KML  = "data/神奈川県水道道路.kml";
+    private static void usage() {
+        System.out.println("Usage:");
+        System.out.println("  java -jar kml2geojson.jar <input.kml> <output.geojson|output.zip>");
+        System.out.println();
+        System.out.println("Examples:");
+        System.out.println("  java -jar kml2geojson.jar input.kml output.geojson   # 1ファイルにマージ");
+        System.out.println("  java -jar kml2geojson.jar input.kml output.zip       # レイヤ毎に分割してZIP");
+    }
 
-    private static final String OUTPUT_DIR = "data/out_layers";
-
-    public static void main(final String[] args) throws Exception {
-
-        final var inputFile = new File(Kml2GeojsonCli.INPUT_KML);
-        final var outDir = new File(Kml2GeojsonCli.OUTPUT_DIR);
-
-        if (!inputFile.isFile()) {
-            System.err.println("入力KMLが見つかりません: " + inputFile.getPath());
+    public static void main(String[] args) throws Exception {
+        if (args.length < 2) {
+            usage();
             System.exit(1);
         }
+        final String in  = args[0];
+        final String out = args[1];
 
         final var exporter = new KmlLayersExporter();
-        final var count = exporter.exportLayers(inputFile, outDir);
+        exporter.exportLayers(in, out); // 拡張子で自動切替
 
-        System.out.println("入力 : " + inputFile.getPath());
-        System.out.println("出力 : " + outDir.getPath());
-        System.out.println("レイヤ数: " + count);
+        final Path outPath = out.toLowerCase().endsWith(".zip") ? Paths.get(out)
+                : out.toLowerCase().endsWith(".geojson") ? Paths.get(out)
+                : Paths.get(out + ".zip");
+        Files.exists(outPath);
+        System.out.println("Done: " + outPath.toAbsolutePath());
     }
 }
