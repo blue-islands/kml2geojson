@@ -5,7 +5,7 @@ import java.io.File;
 /** 引数不要。相対パス固定。data フォルダ等は事前に用意してください。 */
 public class Kml2GeojsonCli {
 
-    private static final String INPUT_KML  = "data/東京都の水道道路.kml";
+    private static final String INPUT_KML  = "data/神奈川県水道道路.kml";
 
     private static final String OUTPUT_DIR = "data/out_layers";
 
