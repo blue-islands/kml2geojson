@@ -4,7 +4,7 @@
 
     <groupId>jp.livlog</groupId>
     <artifactId>kml2geojson</artifactId>
-    <version>0.1.0</version>
+    <version>0.1.1</version>
 
     <name>kml2geojson</name>
     <url>https://github.com/blue-islands/kml2geojson</url>
